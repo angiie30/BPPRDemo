@@ -32,10 +32,10 @@ namespace BPPR_Demo.Database
 
             connection.Execute(@"Create Table [User] (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                FirstName VARCHAR(100) NOT NULL,
-                LastName VARCHAR(100) NOT NULL,
-                Email VARCHAR(250) NOT NULL,
-                Phone VARCHAR(12) NULL,
+                FirstName VARCHAR(50) NOT NULL,
+                LastName VARCHAR(50) NOT NULL,
+                Email VARCHAR(100) NOT NULL,
+                Phone VARCHAR(10) NULL,
                 Active BIT NOT NULL DEFAULT 0
             )");
         }
