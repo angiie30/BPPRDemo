@@ -22,6 +22,14 @@ namespace BPPR_Demo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddCors(c =>
+            //{
+            //    c.AddPolicy("AllowOrigin", options => options
+            //        .WithOrigins("http://localhost:4200")
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader());
+            //});
+
             services.AddControllers();
 
             services.AddSingleton(new AppSetting { BPPRDemoConnectionString = Configuration["BPPRDemoConnectionString"] });
@@ -41,6 +49,10 @@ namespace BPPR_Demo
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(options => options.WithOrigins("http://localhost:4200")
+                                            .AllowAnyMethod()
+                                            .AllowAnyHeader());
 
             app.UseAuthorization();
 

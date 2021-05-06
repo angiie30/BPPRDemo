@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace BPPR_Demo.Controllers
 {
     [ApiController]
-    [Route("Users")]
+    [Route("api/Users")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
