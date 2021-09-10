@@ -26,8 +26,10 @@ namespace BPPR_Demo
 
             services.AddSingleton(new AppSetting { BPPRDemoConnectionString = Configuration["BPPRDemoConnectionString"] });
 
-            services.AddSingleton<IDatabaseConfiguration, DatabaseConfiguration>();
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IBranchService, BranchService>();
+
+            services.AddSingleton<IDatabaseConfiguration, DatabaseConfiguration>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +44,7 @@ namespace BPPR_Demo
 
             app.UseRouting();
 
-            app.UseCors(options => options.WithOrigins("http://localhost:4200")
+            app.UseCors(options => options.WithOrigins("http://localhost:3000")
                                             .AllowAnyMethod()
                                             .AllowAnyHeader());
 
